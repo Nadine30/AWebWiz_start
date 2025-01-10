@@ -1,10 +1,10 @@
 <?php
 
-function html_search_form($min_date = null, $max_date = null)
+function html_search_form($min_date = '', $max_date = '')
 {
     // Convertir les dates en format SQL (YYYY-MM-DD) si elles ne sont pas nulles
-    $min_date = $min_date ? date('Y-m-d', strtotime($min_date)) : null;
-    $max_date = $max_date ? date('Y-m-d', strtotime($max_date)) : null;
+    $min_date = $min_date ? date('Y-m-d', strtotime($min_date)) : '';
+    $max_date = $max_date ? date('Y-m-d', strtotime($max_date)) : '';
 
     ob_start();
     ?>
