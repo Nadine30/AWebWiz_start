@@ -77,10 +77,20 @@ function html_head($menu_a = [])
 function html_foot()
 {
     ob_start();
+    // Récupération des données JSON pour la bannière
+    $sponsor_banner = get_sponsor_banner();
+    $banner = $sponsor_banner['banner_4IPDW'];
+
     ?>
     </main>
     <footer>
         Made with the amazing AWebWiz framework
+        <div style="background-color: <?= htmlspecialchars($banner['color']) ?>; border-radius: 15px; padding: 10px; margin: 50px; margin-bottom: 10px;">
+            <a href="<?= htmlspecialchars($banner['link']) ?>" style="text-decoration: none; color: white;">
+                <img src="<?= htmlspecialchars($banner['image']) ?>" alt="Sponsor Banner" style="max-width: 100%; border-radius: 10px;">
+                <p style="text-align: center;"><?= htmlspecialchars($banner['text']) ?></p>
+            </a>
+        </div>
     </footer>
     </body>
     </html>

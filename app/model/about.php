@@ -48,7 +48,7 @@ function get_about_content_sql(): array
     SELECT 
         id, 
         content
-    FROM static_content
+    FROM t_static_content
     WHERE id = :id;
 SQL;
 

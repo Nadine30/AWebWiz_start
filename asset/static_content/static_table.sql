@@ -1,10 +1,10 @@
-CREATE TABLE static_content (
+CREATE TABLE t_static_content (
     id INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT NOT NULL
 );
 
 -- Insertion du premier contenu
-INSERT INTO static_content (content) VALUES (
+INSERT INTO t_static_content (content) VALUES (
     '<h2>A propos de nous</h2>
     <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tincidunt orci sed dolor rhoncus mattis. Curabitur bibendum lectus eu finibus mollis. Nullam eu dapibus nunc. Nunc venenatis risus eget enim tempor condimentum. Sed nisi velit, tincidunt sed nulla nec, blandit rhoncus ex. Morbi cursus libero sed nisl commodo vulputate. Aliquam vulputate consectetur varius. Suspendisse interdum mollis nisl, ut scelerisque augue. Nulla dictum tortor at vestibulum pharetra.
@@ -24,7 +24,7 @@ INSERT INTO static_content (content) VALUES (
 );
 
 -- Insertion du deuxième contenu
-INSERT INTO static_content (content) VALUES (
+INSERT INTO t_static_content (content) VALUES (
     '<h2>Conditions Générales de Vente</h2>
     <p>Voici les CGV ...</p>'
 );

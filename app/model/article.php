@@ -241,4 +241,16 @@ SQL;
     }
 }
 
+/**
+ * Calcule le temps de lecture estimé d'un article
+ * @param string $content Le contenu de l'article
+ * @return int Le temps estimé en minutes
+ */
+function calculate_reading_time($content)
+{
+    $word_count = str_word_count(strip_tags($content)); // Nombre de mots
+    $reading_speed = 200; // Nombre moyen de mots lus par minute
+    return ceil($word_count / $reading_speed);
+}
+
 
