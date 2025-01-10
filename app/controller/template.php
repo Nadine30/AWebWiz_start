@@ -14,7 +14,7 @@ function ctrl_head()
 	//get menu array from csv
 	$menu_a = get_menu_csv();
 
-    return html_head($menu_a, $user_id, $user_name, $user_role);
+    return html_head($menu_a);
 
 }
 /**
@@ -55,11 +55,14 @@ function handle_theme_change()
  */
 function handle_font_policy_change()
 {
+    // echo var_dump($_POST['font_policy']);
+    // die();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['font_policy'])) {
+        
         $valid_fonts = [
-            'Arial, sans-serif',
-            "'Poppins'",
-            "'Courier New', monospace"
+            'arial',
+            "poppins",
+            "nunito"
         ]; // Les polices valides
         $font = htmlspecialchars($_POST['font_policy']);
         if (in_array($font, $valid_fonts, true)) {

@@ -15,7 +15,7 @@ function login_validate($login, $password)
 
         // Vérifier si la requête a échoué
         if ($response === false) {
-            return [false, null];
+            return [false, null, null];
         }
 
         // Décoder la réponse JSON
@@ -25,11 +25,25 @@ function login_validate($login, $password)
         if (isset($result['identified']) && $result['identified'] === true) {
             return [true, $result['name'], $result['role']];
         } else {
-            return [false, null];
+            return [false, null, null];
         }
     } catch (Exception $e) {
         // Gestion des erreurs
-        return [false, null];
+        return [false, null, null];
     }
+}
+
+function set_user_cookies($name, $role)
+{
+    // Définir les cookies pour l'utilisateur identifié
+    setcookie('name', $name, time() + 3600, '/'); // Cookie valide pour 1 heure
+    setcookie('role', $role, time() + 3600, '/'); // Cookie valide pour 1 heure
+}
+
+function clear_user_cookies()
+{
+    // Supprimer les cookies de l'utilisateur
+    setcookie('name', '', time() - 3600, '/');
+    setcookie('role', '', time() - 3600, '/');
 }
 ?>

@@ -49,11 +49,14 @@ function html_unidentified_user()
     HTML;
 }
 
+/**
+ * Lien vers la page d'accueil (ou autre)
+ */
 function html_link_home()
 {
     ob_start();
     ?>
-    
+    <a href="?page=home">Accueil</a>
     <?php
     return ob_get_clean();
 }

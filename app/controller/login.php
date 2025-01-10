@@ -7,8 +7,7 @@ function main_login()
 
     // Déconnexion de l'utilisateur
     if ($action === 'logout') {
-        session_unset(); // Supprimer les variables de session
-        session_destroy(); // Détruire la session
+        clear_user_cookies(); // Supprimer les cookies
         $msg = "Vous êtes déconnecté.";
     }
 
@@ -18,29 +17,29 @@ function main_login()
 
         if ($isValid) {
             // Identification réussie
-            $_SESSION['name'] = $userName; // Stocker le nom d'utilisateur
-			$_SESSION['role'] = $userRole;
-            $msg = "Bienvenue, vous êtes identifié comme " . $_SESSION['name'];
-            $msg .= html_logout_button(); // Ajouter bouton de déconnexion
+            set_user_cookies($userName, $userRole); // Définir les cookies
+            $msg = "Bienvenue, vous êtes identifié comme " . htmlspecialchars($userName);
+            $msg .= html_logout_button(); // Ajouter le bouton de déconnexion après le message
         } else {
             // Échec de l'identification
-            session_unset(); // Réinitialiser la session en cas d'échec
+            clear_user_cookies(); // Réinitialiser les cookies en cas d'échec
             $msg = "Échec de l'identification : Login ou mot de passe incorrect.";
+            $msg .= html_unidentified_user(); // Afficher le formulaire de connexion
         }
     }
 
-    // Vérification si l'utilisateur est identifié
-    if (isset($_SESSION['name'])) {
+    // Vérification si l'utilisateur est identifié via les cookies
+    if (isset($_COOKIE['name']) && isset($_COOKIE['role'])) {
         // Utilisateur identifié
         $msg .= html_logout_button();
-    } else {
+    } else if (empty($msg)) {
         // Utilisateur non identifié : afficher le formulaire de connexion
         $msg .= html_unidentified_user();
     }
 
     // Retourner la page complète
     return join("\n", [
-        ctrl_head(),
+        html_head(),
         html_open_form(),
         $msg,
         html_link_home(),
