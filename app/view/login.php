@@ -19,7 +19,7 @@ function html_open_form()
 {
     ob_start();
     ?>
-    <form method="post">
+    <form method="post" class="form-group w-50 mx-auto">
     <?php
     return ob_get_clean();
 }
@@ -41,13 +41,22 @@ function html_close_form()
  */
 function html_unidentified_user()
 {
-    return <<<HTML
-        Identifiez-vous :
-        <input type="text" name="login" placeholder="Login">
-        <input type="password" name="password" placeholder="Mot de passe">
-        <button type="submit">Se connecter</button>
-    HTML;
+    ob_start();
+    ?>
+    <div class="form-group">
+        <label for="login">Identifiez-vous :</label>
+        <input type="text" name="login" id="login" class="form-control form-control-sm" placeholder="Login">
+    </div>
+    <div class="form-group">
+        <input type="password" name="password" class="form-control form-control-sm mt-2" placeholder="Mot de passe">
+    </div>
+    <button type="submit" class="btn btn-primary btn-sm mt-2">Se connecter</button>
+    <?php
+    return ob_get_clean();
 }
+
+
+
 
 /**
  * Lien vers la page d'accueil (ou autre)
@@ -56,7 +65,7 @@ function html_link_home()
 {
     ob_start();
     ?>
-    <a href="?page=home">Accueil</a>
+    <a href="?page=home" class="text-primary">Accueil</a>
     <?php
     return ob_get_clean();
 }

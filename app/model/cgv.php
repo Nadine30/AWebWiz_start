@@ -20,9 +20,9 @@ function get_cgv_content()
  */
 function get_cgv_content_json()
 {
-    $fn = DATABASE_NAME; // Nom du fichier JSON
-    $data = file_get_contents($fn); // Charger le contenu du fichier
-    $content = json_decode($data, true); // Décoder en tableau PHP
+    $fn = DATABASE_NAME; 
+    $data = file_get_contents($fn); 
+    $content = json_decode($data, true); 
     
     // Trouver l'entrée associée au contenu "À propos"
     foreach ($content as $entry) {
@@ -30,8 +30,6 @@ function get_cgv_content_json()
             return $entry;
         }
     }
-
-    // Retour par défaut si le contenu "À propos" est introuvable
     return [
         'title' => 'À propos introuvable',
         'content' => 'Le contenu demandé est introuvable.',
@@ -53,7 +51,7 @@ function get_cgv_content_sql(): array
 SQL;
 
     try {
-        $pdo = get_pdo(); // Récupérer la connexion PDO
+        $pdo = get_pdo(); 
         $stmt = $pdo->prepare($q);
 
         // Exécuter la requête avec l'ID spécifié (par défaut, ID = 1 pour "À propos")
@@ -61,10 +59,6 @@ SQL;
 
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // echo var_dump($result);
-        // die();
-
-        // Si aucun contenu n'est trouvé, retourner une valeur par défaut
         if (!$result) {
             return [
                 'title' => 'À propos introuvable',
@@ -74,7 +68,6 @@ SQL;
 
         return $result;
     } catch (PDOException $e) {
-        // Gérer les erreurs de requête SQL
         error_log("Erreur dans get_cgv_content_sql: " . $e->getMessage());
         return [
             'title' => 'Erreur de base de données',

@@ -2,23 +2,23 @@
 
 function html_reading_times_main()
 {
-    // Récupérer tous les articles
     $articles = get_all_article_a();
 
     ob_start();
     ?>
-    <main>
-        <h1>Temps de lecture des articles</h1>
-        <ul>
+    <main class="container my-4">
+        <h1 class="text-center mb-4">Temps de lecture des articles</h1>
+        <div class="list-group">
             <?php foreach ($articles as $article): ?>
-                <li>
-                    <?= htmlspecialchars($article['title']) ?> => 
-                    <?= calculate_reading_time($article['content']) ?> minutes
-                </li>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <span><?= htmlspecialchars($article['title']) ?></span>
+                    <span class="badge bg-primary rounded-pill">
+                        <?= calculate_reading_time($article['content']) ?> minutes
+                    </span>
+                </div>
             <?php endforeach; ?>
-        </ul>
+        </div>
     </main>
     <?php
     return ob_get_clean();
 }
-

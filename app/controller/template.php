@@ -22,9 +22,7 @@ function ctrl_head()
  */
 function handle_bg_color_change()
 {
-    // Vérifier si le formulaire a été soumis
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['bg_color'])) {
-        // Valider et stocker la couleur dans la session
         $_SESSION['bg_color'] = htmlspecialchars($_POST['bg_color']);
 
         // Rediriger pour éviter une resoumission du formulaire
@@ -55,15 +53,13 @@ function handle_theme_change()
  */
 function handle_font_policy_change()
 {
-    // echo var_dump($_POST['font_policy']);
-    // die();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['font_policy'])) {
         
         $valid_fonts = [
             'arial',
             "poppins",
             "nunito"
-        ]; // Les polices valides
+        ]; 
         $font = htmlspecialchars($_POST['font_policy']);
         if (in_array($font, $valid_fonts, true)) {
             $_SESSION['font_policy'] = $font; // Stocker la police sélectionnée

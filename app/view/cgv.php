@@ -11,9 +11,16 @@ function html_cgv_main($cgv_data)
 
 
     $out = <<<HTML
-    <section class="cgv">
+    <section class="cgv">  
         <article>
-            <div>$content</div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-5">
+                        $content
+                    </div>
+                </div>
+            </div>
+            
         </article>
     </section>
     HTML;
@@ -21,30 +28,3 @@ function html_cgv_main($cgv_data)
     return $out;
 }
 
-/**
- * Génère le contenu HTML pour afficher d'autres sections ou liens associés.
- * @param array $sections Liste des autres sections.
- * @return string Contenu HTML.
- */
-function html_other_cgv_sections($sections)
-{
-    ob_start();
-    ?>
-    <section class="other-sections">
-        <?php
-        foreach ($sections as $section) {
-            $title = $section['title'];
-            $id = $section['id'];
-
-            echo <<<HTML
-                <article>
-                    <a href="?page=section&id=$id"><h2>{$title}</h2></a>
-                </article>
-            HTML;
-        }
-        ?>
-    </section>
-    <?php
-    return ob_get_clean();
-}
-?>

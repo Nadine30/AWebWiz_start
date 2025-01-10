@@ -2,7 +2,6 @@
 
 function main_reading_times()
 {
-    // Récupérer tous les articles depuis le modèle
     $articles = get_all_article_a();
     
     // Calculer les temps de lecture pour chaque article
@@ -14,7 +13,6 @@ function main_reading_times()
         ];
     }
 
-    // Rendre la vue en passant les temps de lecture
     return join("\n", [
         ctrl_head(),
         html_reading_times_main($reading_times),

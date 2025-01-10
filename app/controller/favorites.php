@@ -24,9 +24,6 @@ function main_favorite()
                     $message = "L'article est déjà dans vos favoris.";
                 }
             } 
-            // else {
-            //     $message = "Aucun article spécifié.";
-            // }
             break;
 
         case 'remove':
@@ -35,9 +32,6 @@ function main_favorite()
                 remove_from_favorites($article_id);
                 $message = "L'article a été supprimé des favoris.";
             } 
-            // else {
-            //     $message = "Aucun article spécifié.";
-            // }
             break;
 
         case 'view':
@@ -46,7 +40,7 @@ function main_favorite()
             if (empty($_SESSION['favorites'])) {
                 $message = "Aucun article pour le moment.";
             } else {
-                $message = ""; // Aucun message si des favoris existent
+                $message = ""; 
             }
             break;
     }
@@ -54,7 +48,6 @@ function main_favorite()
     // Obtenir les articles favoris
     $favorites = get_favorites_details($_SESSION['favorites']);
 
-    // Afficher la vue
     return join( "\n", [
 		ctrl_head( ),
 		html_favorite_main($favorites, $message),
@@ -69,7 +62,7 @@ function main_favorite()
  */
 function get_favorites_details($favorites)
 {
-    $articles = get_all_articles_a_sql(); // Fonction existante pour récupérer tous les articles
+    $articles = get_all_articles_a_sql(); 
     $favorite_articles = [];
 
     foreach ($articles as $article) {

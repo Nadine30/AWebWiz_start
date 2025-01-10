@@ -4,7 +4,6 @@ function main_search()
     $min_date = $_GET['min_date'] ?? null;
     $max_date = $_GET['max_date'] ?? null;
 
-    // Vérification des dates valides
     if ($min_date && $max_date && $min_date <= $max_date) {
         // Vérification des dates dans l'intervalle requis
         if ($min_date <= '2023-12-15' && $max_date >= '2023-12-15') {
@@ -16,7 +15,6 @@ function main_search()
         $all_article_a = [];
     }
 
-    // Affichage de la page avec le header, contenu et footer
     return join("\n", [
         ctrl_head(),
         html_search_form($min_date, $max_date),
