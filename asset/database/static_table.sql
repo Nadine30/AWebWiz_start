@@ -6,31 +6,31 @@ CREATE TABLE t_static_content (
 -- Insertion du premier contenu
 INSERT INTO t_static_content (content) VALUES (
     "<!DOCTYPE html>
-<html lang="fr">
+<html lang=\"fr\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>À Propos de notre Application Web</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\">
 </head>
 <body>
-    <header class="text-white text-center py-3">
+    <header class=\"text-white text-center py-3\">
         <h1>À Propos de notre Application Web</h1>
     </header>
 
-    <main class="container my-4">
-        <section class="mb-4">
-            <p class="lead text-center">
+    <main class=\"container my-4\">
+        <section class=\"mb-4\">
+            <p class=\"lead text-center\">
                 Bienvenue sur notre site web interactif ! Ce projet a été conçu dans le cadre du cours 4IPW3 pour mettre en pratique l'architecture 
                 Model-View-Controller (MVC) et intégrer différentes technologies web. Vous trouverez ci-dessous un aperçu des fonctionnalités disponibles, 
                 les informations utiles pour naviguer, ainsi que des instructions pour optimiser votre expérience utilisateur.
             </p>
         </section>
 
-        <section class="mb-4 text-center">
-            <h2 class="text-primary">Fonctionnalités disponibles</h2>
-            <div class="d-flex flex-column align-items-center">
-                <ol class="text-left">
+        <section class=\"mb-4 text-center\">
+            <h2 class=\"text-primary\">Fonctionnalités disponibles</h2>
+            <div class=\"d-flex flex-column align-items-center\">
+                <ol class=\"text-left\">
                     <li><strong>Menu de navigation intuitif :</strong>
                         <ul>
                             <li>Accès rapide aux pages principales : accueil, presse, recherche, favoris, temps de lecture, login, CGV et à propos.</li>
@@ -63,7 +63,7 @@ INSERT INTO t_static_content (content) VALUES (
                     </li>
                     <li><strong>Identification des utilisateurs :</strong>
                         <ul>
-                            <li>Connexion sécurisée via un API externe (<a href="http://playground.burotix.be/login" target="_blank">Lien API</a>).</li>
+                            <li>Connexion sécurisée via un API externe (<a href=\"http://playground.burotix.be/login\" target=\"_blank\">Lien API</a>).</li>
                             <li>Gestion des rôles :
                                 <ul>
                                     <li><strong>Admin :</strong> accès privilégié pour des tâches spécifiques.</li>
@@ -90,7 +90,7 @@ INSERT INTO t_static_content (content) VALUES (
                     </li>
                     <li><strong>Contenu statique :</strong>
                         <ul>
-                            <li>Une page "À propos" pour documenter les fonctionnalités et guider les utilisateurs et une page CGV.</li>
+                            <li>Une page \"À propos\" pour documenter les fonctionnalités et guider les utilisateurs et une page CGV.</li>
                             <li>Ces pages proviennent d’une table `t_static_content` que nous avons créé dans la base de données `press_2024_v03`.</li>
                         </ul>
                     </li>
@@ -103,9 +103,9 @@ INSERT INTO t_static_content (content) VALUES (
             </div>
         </section>
 
-        <section class="mb-4 text-center">
-            <h2 class="text-primary">Identifiants de connexion</h2>
-            <ul class="d-inline-block text-left">
+        <section class=\"mb-4 text-center\">
+            <h2 class=\"text-primary\">Identifiants de connexion</h2>
+            <ul class=\"d-inline-block text-left\">
                 <li><strong>Administrateur :</strong>
                     <ul>
                         <li>Login : admin</li>
@@ -121,33 +121,32 @@ INSERT INTO t_static_content (content) VALUES (
             </ul>
         </section>
 
-        <section class="mb-4 text-center">
-            <h2 class="text-primary">Liens d’intérêt</h2>
-            <ul class="d-inline-block text-left">
+        <section class=\"mb-4 text-center\">
+            <h2 class=\"text-primary\">Liens d’intérêt</h2>
+            <ul class=\"d-inline-block text-left\">
                 <li><strong>Publicité sponsorisée :</strong>
-                    <a href="http://playground.burotix.be/adv/banner_for_isfce.json" target="_blank">
+                    <a href=\"http://playground.burotix.be/adv/banner_for_isfce.json\" target=\"_blank\">
                         Lien vers la bannière publicitaire sponsorisée
                     </a>
                 </li>
                 <li><strong>API de connexion :</strong>
-                    <a href="http://playground.burotix.be/login" target="_blank">
+                    <a href=\"http://playground.burotix.be/login\" target=\"_blank\">
                         Lien vers l'API de connexion
                     </a>
                 </li>
             </ul>
         </section>
 
-        <section class="text-center">
+        <section class=\"text-center\">
             <p>Merci d'utiliser notre application web. Si vous avez des questions ou des suggestions, n’hésitez pas à nous contacter !</p>
         </section>
     </main>
 
-    <footer class="bg-secondary text-white text-center py-3">
+    <footer class=\"bg-secondary text-white text-center py-3\">
         <p>&copy; 2025 Notre Application Web. Tous droits réservés.</p>
     </footer>
 </body>
 </html>"
-
 );
 
 -- Insertion du deuxième contenu

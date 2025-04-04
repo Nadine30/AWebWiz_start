@@ -71,8 +71,7 @@ SQL;
         error_log("Erreur dans get_about_content_sql: " . $e->getMessage());
         return [
             'title' => 'Erreur de base de données',
-            'content' => 'Impossible de récupérer le contenu pour le moment.
-            Veuillez svp exécuter dans la console de PHPmyadmin la requête SQL qui se trouve dans le fichier static_table.sql du dossier database afin de récupérer le contenu de la page' . $q,
+            'content' => 'Impossible de récupérer le contenu pour le moment.Veuillez svp exécuter dans la console de PHPmyadmin la requête SQL qui se trouve dans le fichier static_table.sql du dossier database afin de récupérer le contenu de la page.',
         ];
     }
 }
